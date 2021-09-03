@@ -16,7 +16,12 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
 
+  // on utilise le hook pour initialiser une variable signedIn à false
+  // cette vraiable vérifie si l'utilisateur est connecté ou pas
   const [signedIn,setSignedIn] = React.useState(false)
+
+  // le retour conditionnel
+  // si l'utilisateur n'est pas connecté on affiche la navigation du login
   return !signedIn ? (
     <>
       <NavigationContainer>
@@ -26,7 +31,7 @@ export default function App() {
       </Stack.Navigator>
       </NavigationContainer>
     </>
-  ) : (
+  ) : ( /* si le user est connecté on entre dans l'app*/
     <>
       <NavigationContainer>
       <Tab.Navigator>
