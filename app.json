@@ -4,11 +4,11 @@
     "slug": "seneGP",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Vector.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Vector.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1976D2"
     },
     "updates": {
       "fallbackToCacheTimeout": 0

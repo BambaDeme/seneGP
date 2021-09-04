@@ -1,51 +1,52 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
 
-import HomeScreen from './components/HomeScreen';
-import SettingsScreen from './components/SettingsScreen';
-import Login from './components/Login';
-import SignUp from './components/SignUp';
-
+import HomeScreen from "./components/HomeScreen";
+import SettingsScreen from "./components/SettingsScreen";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-
+// test
 export default function App() {
-
   // on utilise le hook pour initialiser une variable signedIn à false
   // cette vraiable vérifie si l'utilisateur est connecté ou pas
-  const [signedIn,setSignedIn] = React.useState(false)
+  const [signedIn, setSignedIn] = React.useState(false);
 
   // le retour conditionnel
   // si l'utilisateur n'est pas connecté on affiche la navigation du login
   return !signedIn ? (
     <>
       <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Login" component={Login} initialParams={{ signedIn:setSignedIn }}/>
-        <Stack.Screen name="SignUp" component={SignUp} />
-      </Stack.Navigator>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            initialParams={{ signedIn: setSignedIn }}
+          />
+          <Stack.Screen name="SignUp" component={SignUp} />
+        </Stack.Navigator>
       </NavigationContainer>
     </>
-  ) : ( /* si le user est connecté on entre dans l'app*/
+  ) : (
+    /* si le user est connecté on entre dans l'app*/
     <>
       <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={HomeScreen} />
-        <Tab.Screen name="Search" component={HomeScreen} />
-        <Tab.Screen name="Historique" component={SettingsScreen} />
-        <Tab.Screen name="Settings" component={SettingsScreen} />
-      </Tab.Navigator>
+        <Tab.Navigator>
+          <Tab.Screen name="Home" component={HomeScreen} />
+          <Tab.Screen name="Search" component={HomeScreen} />
+          <Tab.Screen name="Historique" component={SettingsScreen} />
+          <Tab.Screen name="Settings" component={SettingsScreen} />
+        </Tab.Navigator>
       </NavigationContainer>
     </>
-  )
+  );
 }
-
-
 
 /*import { StatusBar } from 'expo-status-bar';
 import React from 'react';
