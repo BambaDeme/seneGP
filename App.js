@@ -12,6 +12,10 @@ import SignUp from "./components/SignUp";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
+import Ionicons from "react-native-vector-icons/Ionicons";
+import SearchScreen from "./components/SearchScreen";
+import HistoryScreen from "./components/HistoryScreen";
+
 // test
 export default function App() {
   // on utilise le hook pour initialiser une variable signedIn à false
@@ -37,11 +41,48 @@ export default function App() {
     /* si le user est connecté on entre dans l'app*/
     <>
       <NavigationContainer>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="Search" component={HomeScreen} />
-          <Tab.Screen name="Historique" component={SettingsScreen} />
-          <Tab.Screen name="Settings" component={SettingsScreen} />
+        <Tab.Navigator
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused, color, size }) => {
+              let iconName;
+
+              if (route.name === "Home") {
+                iconName = focused ? "ios-home" : "ios-home";
+              } else if (route.name === "Search") {
+                iconName = "search";
+              } else if (route.name === "Historique") {
+                iconName = "archive";
+              } else if (route.name === "Settings") {
+                iconName = "ios-settings-sharp";
+              }
+
+              // You can return any component that you like here!
+              return <Ionicons name={iconName} size={size} color={color} />;
+            },
+            tabBarActiveTintColor: "#1976D2",
+            tabBarInactiveTintColor: "gray",
+          })}
+        >
+          <Tab.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+          <Tab.Screen
+            name="Search"
+            component={SearchScreen}
+            options={{ headerShown: false }}
+          />
+          <Tab.Screen
+            name="Historique"
+            component={HistoryScreen}
+            options={{ headerShown: false }}
+          />
+          <Tab.Screen
+            name="Settings"
+            component={SettingsScreen}
+            options={{ headerShown: false }}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </>
