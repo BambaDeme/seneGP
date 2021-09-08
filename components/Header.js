@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   welcome: {
-    fontFamily: "Montserrat",
+    /*fontFamily: "Montserrat",*/
     fontSize: 30,
     color: "#fff",
     lineHeight: 34.13,
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   userName: {
-    fontFamily: "Montserrat",
+    /*fontFamily: "Montserrat",*/
     fontSize: 25,
     color: "#fff",
     lineHeight: 29.26,

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Header from "./Header";
+import Vol from "./smallComoponents/Vol";
 
 function HomeScreen() {
   return (
@@ -8,6 +9,7 @@ function HomeScreen() {
       <Header />
       <View style={styles.main}>
         <Text>Dernières annonces</Text>
+        <Vol />
       </View>
     </View>
   );
@@ -16,6 +18,7 @@ function HomeScreen() {
 const styles = StyleSheet.create({
   main: {
     flex: 2,
+    padding: 20,
   },
 });
 export default HomeScreen;
